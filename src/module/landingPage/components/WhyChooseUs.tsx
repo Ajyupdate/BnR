@@ -1,0 +1,103 @@
+import {
+  Box,
+  Center,
+  Flex,
+  Heading,
+  SimpleGrid,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import { ComponentState } from "react";
+
+import Image from "next/image";
+import homehashtag from "public/homehashtag.svg";
+import moneys from "public/moneys.svg";
+import presentionchart from "public/presentionchart.svg";
+import securitysafe from "public/securitysafe.svg";
+
+interface FeatureProps {
+  title: string;
+  text: string;
+  image: ComponentState;
+}
+
+const Feature = ({ title, text, image }: FeatureProps) => {
+  return (
+    <Stack
+      _hover={{
+        boxShadow: "md",
+        p: 2,
+      }}
+    >
+      <Center>
+        <Flex
+          direction={{ base: "column", md: "column" }}
+          w={16}
+          h={16}
+          align={"center"}
+          justify={"center"}
+          mb={1}
+        >
+          <Image src={image} alt={title} />
+        </Flex>
+      </Center>
+      <Center>
+        <Text align={"center"} fontSize={20} fontWeight={400} color="#1CA5AE">
+          {title}
+        </Text>
+      </Center>
+      <Center>
+        <Text align={"center"} color={"gray.600"}>
+          {text}
+        </Text>
+      </Center>
+    </Stack>
+  );
+};
+
+export default function WhyChooseUs() {
+  return (
+    <Box mt={20} mx={{ base: 6, md: "5%" }}>
+      <Center mt={8}>
+        <Heading>Why Choose Us</Heading>
+      </Center>
+
+      <Center mt={3} mb={8}>
+        <Text align={"center"}>
+          RealEstatery is committed to helping you reach your satisfaction
+        </Text>
+      </Center>
+
+      <SimpleGrid columns={{ base: 2, md: 4 }} spacing={10}>
+        <Feature
+          image={moneys}
+          title={"Best Prices"}
+          text={
+            "Better Interest rate on the market. RealEstatery gives you the opportunity of the best prices in the market."
+          }
+        />
+        <Feature
+          image={presentionchart}
+          title={"Security"}
+          text={
+            "Better Interest rate on the market. RealEstatery gives you the opportunity of the best prices in the market."
+          }
+        />
+        <Feature
+          image={securitysafe}
+          title={"Stable Prices"}
+          text={
+            "We prevent unstable prices and we 99% guarantee no price changes on your property due to any impromptu costs."
+          }
+        />
+        <Feature
+          image={homehashtag}
+          title={"Property Insurance"}
+          text={
+            "We have a series of policies that offer either property protection or liability coverage. "
+          }
+        />
+      </SimpleGrid>
+    </Box>
+  );
+}
