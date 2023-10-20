@@ -121,6 +121,7 @@ export default function SignUpForm() {
         <Form>
           {/* <Container width={'100%'}> */}
           <Flex
+            minH={"50vh"}
             direction={{ base: "column", md: "row" }}
             wrap="wrap"
             justify="space-between"

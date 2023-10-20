@@ -332,7 +332,7 @@ export default function AddPropertyForm() {
               </FormControl>
             </Flex>
 
-            <Box>
+            <Box mb={4}>
               <>
                 {!isLoading ? (
                   <MyButton
